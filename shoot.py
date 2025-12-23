@@ -461,7 +461,7 @@ class PlayerSwitch(Player):
         射撃モード切替型の各種設定
         """
         super().__init__()
-        self.image.fill(YELLOW)
+        self.image.fill(PINK)
         self.speed = 5
         self.shoot_mode = 2 # 2wayスタート
         self.last_toggle_time = 0 # 連打防止
