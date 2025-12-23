@@ -333,8 +333,6 @@ while running:
                     current_state = GAME_STATE_PLAYING
                 if event.key == pygame.K_ESCAPE:
                     current_state = GAME_STATE_TITLE
-                if event.key == pygame.K_ESCAPE:
-                    current_state = GAME_STATE_TITLE # 戻る
 
         # ■ ゲームオーバー画面
         elif current_state == GAME_STATE_GAMEOVER:
