@@ -671,8 +671,6 @@ while running:
                 hp_text = small_font.render(f"Boss HP: {b.hp}", True, WHITE)
                 screen.blit(hp_text, (100, 45))
 
-    
-
     elif current_state == GAME_STATE_GAMEOVER:
         over_text = font.render("ゲームオーバー", True, RED)
         score_res_text = font.render(f"最終スコア: {score}", True, WHITE)
