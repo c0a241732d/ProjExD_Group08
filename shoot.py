@@ -34,12 +34,17 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 class Bullet(pygame.sprite.Sprite):
     """
-    弾クラス（修正版）
-    寿命(life)と近接属性(is_melee)を追加
+    弾クラス
+    自機と敵の弾を共通で管理
     """
-    def __init__(self, x:float, y:float, vy:float, vx:float=0, 
-                 is_player_bullet:bool=True, color:tuple=WHITE, 
-                 size:int=0, life:int=0, is_melee:bool=False) -> None:
+    def __init__(self, x:float, y:float, vy:float, vx:float=0, is_player_bullet:bool=True, color:tuple=WHITE) -> None:
+        """
+        弾の設定
+        引数 x,y: 弾の座標
+        引数 vx,vy: 弾の速度
+        引数 is_player_bullet: プレイヤーの弾かどうか
+        引数 color: 弾の色
+        """
         super().__init__()
         
         # sizeが指定されていなければデフォルト値を使う
@@ -51,8 +56,10 @@ class Bullet(pygame.sprite.Sprite):
         self.life = life         # 寿命（フレーム数）。0なら無限（画面外まで）
         
         if is_player_bullet:
+            # プレイヤー弾は引数で色を指定可能にする
             self.image.fill(color)
         else:
+            # 敵弾は赤玉
             pygame.draw.circle(self.image, RED, (size//2, size//2), size//2)
             self.image.set_colorkey(BLACK)
 
